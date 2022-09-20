@@ -21,7 +21,7 @@ public class Paciente extends Pessoa{
 
     @Override
     public String toString() {
-        return "\nPaciente:  "+getNome()+"   Idade"+getIdade()+"  observacao:" + observacao ;
+        return "\nPaciente:  "+getNome()+"   Idade: "+getIdade()+"\nobservacao: " + observacao ;
     }
     
     

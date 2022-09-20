@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Consulta {
     private Date data;
@@ -36,9 +37,11 @@ public class Consulta {
         this.paciente = paciente;
     }
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
     @Override
     public String toString() {
-        return "\nConsulta data=" + data + ", hora=" + hora + "," + paciente ;
+        return "\nConsulta data=" + sdf.format(data) + ", hora=" + hora + "," + paciente+"\n\n" ;
     }
 
     
