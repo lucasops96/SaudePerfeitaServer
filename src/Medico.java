@@ -76,7 +76,7 @@ public class Medico extends Pessoa{
         
     }
 
-    public void buscarPrecricao(){
+    public void buscarPrescricao(){
         String nomePaciente = JOptionPane.showInputDialog(null, "Digite o nome do Paciente: ");
 
         for (Consulta consulta : agenda.getAgenda()) {

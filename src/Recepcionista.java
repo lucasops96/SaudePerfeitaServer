@@ -83,7 +83,7 @@ public class Recepcionista {
 
         for (int i=0;i<medicos.size();i++) {
             if(medicos.get(i).getNome().equals(nomeMedico)){
-                medicos.get(i).buscarPrecricao();
+                medicos.get(i).buscarPrescricao();
             }
         }
     }
