@@ -60,5 +60,12 @@ public class Endereco {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
+    @Override
+    public String toString() {
+        return "\nEstado: "+ estado +"\nCidade: "+ cidade +"\nBairro:" + bairro+"\nRua: " + rua +" Número: " + numero;
+    }
+
+    
     
 }

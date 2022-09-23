@@ -60,8 +60,8 @@ public class Medico extends Pessoa{
                 if (consulta.getPaciente().getNome().equals(nomePaciente)) {
                     stb.append("Dados do Paciente\n"
                             + "Nome: " + consulta.getPaciente().getNome() + "\nIdade: " + consulta.getPaciente().getIdade() + "\nCPF: " + consulta.getPaciente().getCpf()
-                            + "\nEndereço:" + consulta.getPaciente().getEndereco() + "\nData:"
-                            + "\n\n               Receituário\n\n" + JOptionPane.showInputDialog(null, "Prescreva os medicamentos e exames do paciente: ")
+                            + "\nEndereço " + consulta.getPaciente().getEndereco() + "\nData:"+consulta.getData()
+                            + "\n\n         Receituário\n\n" + JOptionPane.showInputDialog(null, "Prescreva os medicamentos e exames do paciente: ")
                             + "\n\nDr." + getNome() + "\nCRM " + getCrm()
                     );
 
