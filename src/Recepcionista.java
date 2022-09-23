@@ -68,6 +68,26 @@ public class Recepcionista {
         }
     }
 
+    public void prescreverPaciente(){
+        String nomeMedico = JOptionPane.showInputDialog(null,"Digite o nome do Médico: ");
+
+        for (int i=0;i<medicos.size();i++) {
+            if(medicos.get(i).getNome().equals(nomeMedico)){
+                medicos.get(i).prescrever();
+            }
+        }
+    }
+
+    public void prescricaoPaciente(){
+        String nomeMedico = JOptionPane.showInputDialog(null,"Digite o nome do Médico: ");
+
+        for (int i=0;i<medicos.size();i++) {
+            if(medicos.get(i).getNome().equals(nomeMedico)){
+                medicos.get(i).buscarPrecricao();
+            }
+        }
+    }
+
     public void imprimirConsultas(){
         for (int i=0;i<medicos.size();i++) {
             JOptionPane.showMessageDialog(null,medicos.get(i).getAgenda(),"Consultas do Médico: "+medicos.get(i).getNome(),JOptionPane.PLAIN_MESSAGE);

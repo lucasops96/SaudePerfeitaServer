@@ -1,10 +1,13 @@
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class Consulta {
     private Date data;
     private String hora;
     private Paciente paciente;
+
+    private StringBuffer prescricao;
     
     
     public Consulta(Date data, String hora, Paciente paciente) {
@@ -37,11 +40,27 @@ public class Consulta {
         this.paciente = paciente;
     }
 
+    
+
+    public StringBuffer getPrescricao() {
+        return prescricao;
+    }
+
+    public void setPrescricao(StringBuffer prescricao) {
+        this.prescricao = prescricao;
+    }
+
+
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     public String toString() {
-        return "\nConsulta data=" + sdf.format(data) + ", hora=" + hora + "," + paciente+"\n\n" ;
+        return "\nConsulta data: " + sdf.format(data) + ", hora: " + hora + "," + paciente+"\n\n" ;
+    }
+
+    public void imprimirPrescricao(){
+        JOptionPane.showMessageDialog(null, this.prescricao.toString());
+        
     }
 
     

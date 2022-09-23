@@ -11,6 +11,7 @@ public class Agenda {
 
     public void addConsulta(Consulta consulta){
         this.agenda.add(consulta);
+        JOptionPane.showMessageDialog(null,"Consulta Marcada."+"\n"+consulta);
     }
 
     public ArrayList<Consulta> getAgenda() {
