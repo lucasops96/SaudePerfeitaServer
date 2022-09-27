@@ -1,8 +1,9 @@
 import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+
+import java.time.LocalDateTime;
+import static java.time.format.DateTimeFormatter.ofPattern;
 
 
 public class Recepcionista {
@@ -13,7 +14,7 @@ public class Recepcionista {
         this.medicos.add(medico);
     }
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
 
     public void marcarConsulta(String nomeMedico) throws ParseException{
         int p = verificarAgenda(nomeMedico);
@@ -21,10 +22,14 @@ public class Recepcionista {
         int op = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite:\n1-Cadastrar Consulta\n2-Cancelar"));
 
         if(op==1){
-            String data = JOptionPane.showInputDialog(null,"Digite a data: ");
-            Date date = sdf.parse(data);
-            String hora = JOptionPane.showInputDialog(null,"Digite a hora: ");
-            medicos.get(p).getAgenda().addConsulta(new Consulta(date, hora,new LerDados().adicionarPaciente()));
+            String data = JOptionPane.showInputDialog(null,"Digite a data e hora: ");
+            LocalDateTime date = LocalDateTime.parse(data, ofPattern("dd/MM/yyyy HH:mm"));
+            if (medicos.get(p).verificaData(date)) {
+                JOptionPane.showMessageDialog(null, "Horário já cadastrado, por favor, insira um novo");
+                marcarConsulta(nomeMedico);
+            }else {
+                medicos.get(p).getAgenda().addConsulta(new Consulta(date, new LerDados().adicionarPaciente()));
+            }
         }else{
             return;
         }

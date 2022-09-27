@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import java.time.LocalDateTime;
+import static java.time.format.DateTimeFormatter.ofPattern;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Agenda {
     
@@ -18,17 +17,15 @@ public class Agenda {
         return agenda;
     }
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
 
     public void remarcar(String nome) throws ParseException{
         
         for (Consulta consulta : agenda) {
          if(consulta.getPaciente().getNome().equals(nome)){
-            String data = JOptionPane.showInputDialog(null,"Digite a data: ");
-            Date d = sdf.parse(data);
-            consulta.setData(d);
-            String hora = JOptionPane.showInputDialog(null,"Digite a hora: ");
-            consulta.setHora(hora);
+            String data = JOptionPane.showInputDialog(null,"Digite a data e hora: ");
+            LocalDateTime date = LocalDateTime.parse(data, ofPattern("dd/MM/yyyy HH:mm"));
+            consulta.setData(date);
             JOptionPane.showMessageDialog(null,"Paciente remarcado."+"\n"+consulta);
             return;
          }  

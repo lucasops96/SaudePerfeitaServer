@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.time.LocalDateTime;
 
 public class Medico extends Pessoa{
     private String crm;
@@ -40,6 +41,16 @@ public class Medico extends Pessoa{
 
     public void setAgenda(Agenda agenda) {
         this.agenda = agenda;
+    }
+
+
+    public boolean verificaData(LocalDateTime data) {
+        for (Consulta consulta: agenda.getAgenda()) {
+            if (consulta.getData().equals((data))) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

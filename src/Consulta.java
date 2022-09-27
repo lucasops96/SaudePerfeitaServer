@@ -1,36 +1,27 @@
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 public class Consulta {
-    private Date data;
-    private String hora;
+    private LocalDateTime data;
     private Paciente paciente;
 
     private StringBuffer prescricao;
     
     
-    public Consulta(Date data, String hora, Paciente paciente) {
+    public Consulta(LocalDateTime data, Paciente paciente) {
         this.data = data;
-        this.hora = hora;
         this.paciente = paciente;
     }
 
-    public Date getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -51,11 +42,11 @@ public class Consulta {
     }
 
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    DateTimeFormatter DataTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     @Override
     public String toString() {
-        return "\nConsulta data: " + sdf.format(data) + ", hora: " + hora + "," + paciente+"\n\n" ;
+        return "\nConsulta data: " + DataTimeFormatter.format(data) + "," + paciente+"\n\n" ;
     }
 
     public void imprimirPrescricao(){
